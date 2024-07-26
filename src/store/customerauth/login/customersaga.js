@@ -10,7 +10,8 @@ function* loginSaga(action) {
       "https://dummyjson.com/auth/login",
       action.payload
     );
-    yield put(loginSuccess(response.data));
+    
+    yield put(loginSuccess(response));
   } catch (error) {
     yield put(loginFailure(error.message));
   }

@@ -10,24 +10,30 @@ import {
 //i18n
 import { withTranslation } from "react-i18next";
 // Redux
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { connect, useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import withRouter from "../withRouter";
 
 // users
 import user1 from "../../../assets/images/users/avatar-8.jpg";
 
-
+import { logout } from "../../../store/actions";
 
 const ProfileMenu = props => {
   // Declare a new state variable, which we'll call "menu"
   const [menu, setMenu] = useState(false);
 
-  const [username, setusername] = useState("Prashant Khamitkar");
+  const [username, setusername] = useState("");
+  const {data} = useSelector((state) => state.customerreducer || {});
+  const navigate=useNavigate();
+  const dispatch =useDispatch();
  useEffect(()=>{
-  setusername("Prashant Khamitkar")
- },[username])
+  setusername(data.firstName+" "+data.lastName);
+ },[data])
 
+const handleLogout=()=>{dispatch(logout());
+  navigate("/login");
+}
   return (
     <React.Fragment>
       <Dropdown
@@ -71,7 +77,7 @@ const ProfileMenu = props => {
           </DropdownItem>
           <div className="dropdown-divider" />
           <button
-           
+           onClick={handleLogout}
             className="dropdown-item"
           >
             <i className="ri-shut-down-line align-middle me-2 text-danger" />

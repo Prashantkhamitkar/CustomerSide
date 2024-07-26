@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { loginRequest } from "../../../store/actions";
+import { ClimbingBoxLoader } from "react-spinners";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [animateButton, setAnimateButton] = useState(false);
@@ -14,15 +17,30 @@ const Login = () => {
   const { loading, error, isAuthenticated } = useSelector(
     (state) => state.customerreducer || {}
   );
+
+    const validationSchema = Yup.object({
+      username: Yup.string()
+        .required("Email Required"),
+      password: Yup.string()
+        .min(6, "Password must be at least 6 characters")
+        .required("Required"),
+    });
+
+    const formik = useFormik({
+      initialValues: {
+        username: "",
+        password: "",
+      },
+      validationSchema,
+      onSubmit: (values) => {
+        dispatch(loginRequest(values));
+      },
+    });
   const toggleForm = () => {
     setIsSignUp(!isSignUp);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(loginRequest({ username, password }));
-    console.log(username+"  "+password)
-  };
+ 
   useEffect(() => {
     if (isAuthenticated) {
       navigate("/dashboard");
@@ -75,7 +93,15 @@ const Login = () => {
       }
     };
   }, []);
-
+if(loading){
+  return (
+    <>
+      <div className="container-fluid d-flex align-items-center justify-content-center min-vh-100">
+        <ClimbingBoxLoader color="#1ea0a0" size={30} speedMultiplier={1} />
+      </div>
+    </>
+  );
+}
   return (
     <div className="container-fluid d-flex align-items-center justify-content-center min-vh-100">
       <div
@@ -83,7 +109,7 @@ const Login = () => {
         id="logincontroller"
       >
         <div className="form-logincontroller sign-up">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={formik.handleSubmit}>
             <img
               src="/ashunyalogo.png"
               style={{ width: "6rem" }}
@@ -95,12 +121,18 @@ const Login = () => {
             </h1>
             <input
               type="text"
+              name="username"
               placeholder="Email"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={formik.values.username}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               required
             />
+            {formik.touched.username && formik.errors.username ? (
+              <div className="error">{formik.errors.username}</div>
+            ) : null}
             <button
+              type="submit"
               className={animateButton ? "animate-button" : ""}
               onClick={handleButtonClick}
             >
@@ -109,7 +141,7 @@ const Login = () => {
           </form>
         </div>
         <div className="form-logincontroller sign-in">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={formik.handleSubmit}>
             <img
               src="/ashunyalogo.png"
               style={{ width: "6rem" }}
@@ -121,19 +153,30 @@ const Login = () => {
             </h1>
             <input
               type="text"
+              name="username"
               placeholder="Email"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={formik.values.username}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               required
             />
+            {formik.touched.username && formik.errors.username ? (
+              <div className="error">{formik.errors.username}</div>
+            ) : null}
             <input
               type="password"
+              name="password"
               placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               required
             />
+            {formik.touched.password && formik.errors.password ? (
+              <div className="error">{formik.errors.password}</div>
+            ) : null}
             <button
+              type="submit"
               className={animateButton ? "animate-button" : ""}
               onClick={handleButtonClick}
             >
