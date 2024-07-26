@@ -32,6 +32,7 @@ const ProfileMenu = props => {
  },[data])
 
 const handleLogout=()=>{dispatch(logout());
+  sessionStorage.removeItem("authToken");
   navigate("/login");
 }
   return (

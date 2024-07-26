@@ -10,7 +10,7 @@ function* loginSaga(action) {
       "https://dummyjson.com/auth/login",
       action.payload
     );
-    
+    sessionStorage.setItem("authToken",response.token);
     yield put(loginSuccess(response));
   } catch (error) {
     yield put(loginFailure(error.message));

@@ -4,6 +4,6 @@ import { useSelector } from "react-redux";
 export const useProfile = () => {
   const authState = useSelector((state) => state.customerreducer || {});
   const { isAuthenticated } = authState;
-
-  return { isAuthenticated };
+const authuser=sessionStorage.getItem("authToken");
+  return {  authuser };
 };

@@ -7,6 +7,7 @@ import ProfileSaga from "./auth/profile/saga";
 import authSaga from "./auth/login/saga";
 import forgetPasswordSaga from "./auth/forgetpwd/saga"
 import watchLoginSaga from "./customerauth/login/customersaga";
+import watchFetchAssets from "./customerauth/assets/assetssaga";
 
 export default function* rootSaga() {
   yield all([
@@ -18,5 +19,6 @@ export default function* rootSaga() {
     fork(authSaga),
     fork(forgetPasswordSaga),
     fork(watchLoginSaga),
+    fork(watchFetchAssets),
   ]);
 }

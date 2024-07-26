@@ -12,6 +12,7 @@ import forgetPassword from "./auth/forgetpwd/reducer";
 import profile from "./auth/profile/reducer";
 import account from "./auth/register/reducer";
 import customerreducer from "./customerauth/login/customerreducer";
+import assetsReducer from "./customerauth/assets/assetsReducer";
 
 const rootReducer = combineReducers({
   // public
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   profile,
   account,
   customerreducer,
+  assetsReducer,
 });
 
 export default rootReducer;

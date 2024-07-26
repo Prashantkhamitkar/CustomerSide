@@ -4,10 +4,13 @@ import { Col, Container, Row } from "reactstrap";
 import Incidents from "./Incidents";
 import OpenTableByUser from "./OpenTableByUser";
 import OpenTicketChart from "./OpenTicketChart";
+import { useSelector } from "react-redux";
 
 
 
 const DashboardIndex = () => {
+
+
   return (
     <>
       <div className="page-content">

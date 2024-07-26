@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { loginRequest } from "../../../store/actions";
+import { fetchAssetsRequest } from "../../../store/actions";
 import { ClimbingBoxLoader } from "react-spinners";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [animateButton, setAnimateButton] = useState(false);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading, error, isAuthenticated } = useSelector(
@@ -23,7 +23,7 @@ const Login = () => {
         .required("Email Required"),
       password: Yup.string()
         .min(6, "Password must be at least 6 characters")
-        .required("Required"),
+        .required("Password Required"),
     });
 
     const formik = useFormik({
@@ -44,6 +44,7 @@ const Login = () => {
   useEffect(() => {
     if (isAuthenticated) {
       navigate("/dashboard");
+      dispatch(fetchAssetsRequest());
     }
   }, [isAuthenticated, navigate]);
   const handleButtonClick = () => {
