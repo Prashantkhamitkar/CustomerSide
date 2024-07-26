@@ -2,25 +2,32 @@ import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 
+import { useDispatch, useSelector } from "react-redux";
+import { loginRequest } from "../../../store/actions";
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [animateButton, setAnimateButton] = useState(false);
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const { loading, error, isAuthenticated } = useSelector(
+    (state) => state.customerreducer || {}
+  );
   const toggleForm = () => {
     setIsSignUp(!isSignUp);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submit button pressed ");
-    console.log("Email:", email);
-    console.log("Password:", password);
-    navigate("/dashboard");
+    dispatch(loginRequest({ username, password }));
+    console.log(username+"  "+password)
   };
-
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/dashboard");
+    }
+  }, [isAuthenticated, navigate]);
   const handleButtonClick = () => {
     setAnimateButton(true);
     setTimeout(() => {
@@ -87,10 +94,10 @@ const Login = () => {
               Ashunya Helpdesk
             </h1>
             <input
-              type="email"
+              type="text"
               placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
             <button
@@ -113,10 +120,10 @@ const Login = () => {
               Sign In To Helpdesk Portal
             </h1>
             <input
-              type="email"
+              type="text"
               placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
             <input
@@ -137,7 +144,10 @@ const Login = () => {
         <div className="toggle-logincontroller">
           <div className="toggle">
             <div className="toggle-panel toggle-left">
-              <h1 className="h4 h-md-3 h-lg-2 font-weight-bold">
+              <h1
+                className="h4 h-md-3 h-lg-2 font-weight-bold"
+                style={{ color: "#344844" }}
+              >
                 Password Login!
               </h1>
               <p className="text-base md:text-lg lg:text-xl">
@@ -148,8 +158,11 @@ const Login = () => {
               </button>
             </div>
             <div className="toggle-panel toggle-right">
-              <h1 className="h4 h-md-3 h-lg-2 font-weight-bold">
-                Password Less Login
+              <h1
+                className="h4 h-md-3 h-lg-2 font-weight-bold"
+                style={{ color: "#bcc1c0" }}
+              >
+                Password Less Login!
               </h1>
               <p className="text-base md:text-lg lg:text-xl">
                 Login without a password using a link sent to your email.

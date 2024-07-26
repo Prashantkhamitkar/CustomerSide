@@ -1,11 +1,17 @@
 import React from "react";
 
 
-import { Route } from "react-router-dom";
+import { Navigate, Route } from "react-router-dom";
+import { useProfile } from "../Hooks/UserHooks";
 
 const AuthProtected = ({ children }) => {
+ const { isAuthenticated } = useProfile();
 
-return <>{children}</>
+ if (!isAuthenticated) {
+   return <Navigate to="/login" />;
+ }
+
+ return <>{children}</>;
 
 }
 

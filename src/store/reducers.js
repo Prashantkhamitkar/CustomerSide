@@ -8,9 +8,10 @@ import calendar from "./calendar/reducer";
 
 // Authentication
 import forgetPassword from "./auth/forgetpwd/reducer";
-import login from "./auth/login/reducer";
+ import login from "./auth/login/reducer";
 import profile from "./auth/profile/reducer";
 import account from "./auth/register/reducer";
+import customerreducer from "./customerauth/login/customerreducer";
 
 const rootReducer = combineReducers({
   // public
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   login,
   profile,
   account,
+  customerreducer,
 });
 
 export default rootReducer;

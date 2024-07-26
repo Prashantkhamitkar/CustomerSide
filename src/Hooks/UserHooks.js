@@ -1,23 +1,9 @@
-import { useMsal } from "@azure/msal-react";
-import { useState } from "react";
+// src/Hooks/UserHooks.js
+import { useSelector } from "react-redux";
 
+export const useProfile = () => {
+  const authState = useSelector((state) => state.customerreducer || {});
+  const { isAuthenticated } = authState;
 
-
-const useProfile = () => {
- const {instance,inProgress}=useMsal();
- const activeaccount=instance.getActiveAccount();
-const [userProfile,setUserProfile]=useState(null);
-const [loading,setLoading]=useState(true);
-if(!activeaccount&&inProgress){
-  setLoading(true);
-  setUserProfile(null);
-}
-else{
-  setLoading(false);
-  setUserProfile(activeaccount);
-}
-
-  return { userProfile, loading };
+  return { isAuthenticated };
 };
-
-export { useProfile };
