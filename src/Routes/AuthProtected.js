@@ -5,9 +5,9 @@ import { Navigate, Route } from "react-router-dom";
 import { useProfile } from "../Hooks/UserHooks";
 
 const AuthProtected = ({ children }) => {
- const { authuser } = useProfile();
+ const { isAuthenticated } = useProfile();
 
- if (!authuser) {
+ if (!isAuthenticated) {
    return <Navigate to="/login" />;
  }
 

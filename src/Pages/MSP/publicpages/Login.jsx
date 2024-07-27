@@ -46,7 +46,7 @@ const Login = () => {
       navigate("/dashboard");
       dispatch(fetchAssetsRequest());
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated]);
   const handleButtonClick = () => {
     setAnimateButton(true);
     setTimeout(() => {
@@ -115,7 +115,7 @@ if(loading){
               src="/ashunyalogo.png"
               style={{ width: "6rem" }}
               className="mb-3"
-              loading="lazy"
+            
               alt="ashunya logo"
             />
             <h1 className="h4 h-md-3 h-lg-2 font-weight-bold">
@@ -149,7 +149,7 @@ if(loading){
               style={{ width: "6rem" }}
               className="mb-3"
               alt="ashunya logo"
-              loading="lazy"
+             
             />
             <h1 className="h4 h-md-3 h-lg-2 font-weight-bolder">
               Sign In To Helpdesk Portal
