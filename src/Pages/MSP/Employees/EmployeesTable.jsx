@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ActionButton from '../common/ActionButton';
 import { Button, Card, CardBody, CardHeader, Col, Row } from 'reactstrap';
 import EmployeesData from './EmployeesData';
+import OffboardingModal from './OFFBOARDING/OffboardingModal';
 
 const EmployeesTable = () => {
 const [employeedata,setemployeedata]=useState([]);
@@ -78,6 +79,7 @@ const handleclick=()=>{
                 </Col>
               </Row>
               <EmployeesData/>
+              <OffboardingModal modal={toggle} toggle={handleclick}/>
             </CardBody>
           </Card>
         </Col>

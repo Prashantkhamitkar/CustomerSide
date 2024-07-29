@@ -9,7 +9,7 @@ import { ClimbingBoxLoader } from "react-spinners";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 const Login = () => {
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(true);
   const [animateButton, setAnimateButton] = useState(false);
 
   const navigate = useNavigate();
@@ -18,24 +18,37 @@ const Login = () => {
     (state) => state.customerreducer || {}
   );
 
-    const validationSchema = Yup.object({
+    const validationSchemaPassword = Yup.object({
       username: Yup.string()
         .required("Email Required"),
       password: Yup.string()
         .min(6, "Password must be at least 6 characters")
         .required("Password Required"),
     });
+const validationSchemaPasswordLess = Yup.object({
+  email: Yup.string().required("Email Required"),
 
+});
     const formik = useFormik({
       initialValues: {
         username: "",
         password: "",
       },
-      validationSchema,
+     validationSchema:validationSchemaPassword,
       onSubmit: (values) => {
         dispatch(loginRequest(values));
       },
     });
+      const formikPasswordLess = useFormik({
+        initialValues: {
+          email: "",
+          
+        },
+       validationSchema:validationSchemaPasswordLess,
+        onSubmit: (values) => {
+          console.log(values)
+        },
+      });
   const toggleForm = () => {
     setIsSignUp(!isSignUp);
   };
@@ -46,7 +59,7 @@ const Login = () => {
       navigate("/dashboard");
       dispatch(fetchAssetsRequest());
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, navigate, dispatch]);
   const handleButtonClick = () => {
     setAnimateButton(true);
     setTimeout(() => {
@@ -110,12 +123,11 @@ if(loading){
         id="logincontroller"
       >
         <div className="form-logincontroller sign-up">
-          <form onSubmit={formik.handleSubmit}>
+          <form onSubmit={formikPasswordLess.handleSubmit}>
             <img
               src="/ashunyalogo.png"
               style={{ width: "6rem" }}
               className="mb-3"
-            
               alt="ashunya logo"
             />
             <h1 className="h4 h-md-3 h-lg-2 font-weight-bold">
@@ -123,15 +135,16 @@ if(loading){
             </h1>
             <input
               type="text"
-              name="username"
+              name="email"
               placeholder="Email"
-              value={formik.values.username}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+              value={formikPasswordLess.values.email}
+              onChange={formikPasswordLess.handleChange}
+              onBlur={formikPasswordLess.handleBlur}
               required
             />
-            {formik.touched.username && formik.errors.username ? (
-              <div className="error">{formik.errors.username}</div>
+            {formikPasswordLess.touched.email &&
+            formikPasswordLess.errors.email ? (
+              <div className="error">{formikPasswordLess.errors.email}</div>
             ) : null}
             <button
               type="submit"
@@ -149,7 +162,6 @@ if(loading){
               style={{ width: "6rem" }}
               className="mb-3"
               alt="ashunya logo"
-             
             />
             <h1 className="h4 h-md-3 h-lg-2 font-weight-bolder">
               Sign In To Helpdesk Portal
