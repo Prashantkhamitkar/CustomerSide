@@ -40,6 +40,7 @@ import AssetsIndex from "../Pages/MSP/Assets/AssetsIndex.jsx";
 import EmployeesIndex from "../Pages/MSP/Employees/EmployeesIndex.jsx";
 import TicketIndex from "../Pages/MSP/Ticket/TicketIndex.jsx";
 import Login from "../Pages/MSP/publicpages/Login.jsx";
+import CreateTicket from "../Pages/MSP/Ticket/TicketCreation/CreateTicket.jsx";
 
 const authProtectedRoutes = [
   //dashboard
@@ -77,6 +78,7 @@ const authProtectedRoutes = [
   { path: "/assets", component: <AssetsIndex /> },
   { path: "/employees", component: <EmployeesIndex /> },
   { path: "/customertickets", component: <TicketIndex /> },
+  {path:"/createticket",component:<CreateTicket/>},
 
   // this route should be at the end of all other routes
   // eslint-disable-next-line react/display-name

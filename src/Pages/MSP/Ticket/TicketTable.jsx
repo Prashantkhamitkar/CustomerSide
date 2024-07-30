@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Button, Card, CardBody, CardHeader, Col, Row } from 'reactstrap';
 import Select from "react-select"
 import ActionButton from '../common/ActionButton';
+import CreateTicketButton from './CreateTicketButton';
 const TicketTable = () => {
 const [ticketData, setTicketData] = useState([]);
 const [searchTerm, setSearchTerm] = useState("");
+const [toggle,settoggle]=useState(false);
 useEffect(() => {
   const filtered = ticketData.filter((item) =>
     Object.values(item).some((val) =>
@@ -52,13 +54,13 @@ const resetRecord = () => {
                   md="12"
                   className="col-sm d-flex justify-content-end align-items-center"
                 >
-                  {/* <StickyButton toggle={toggle} /> */}
+                <CreateTicketButton/>
                 </Col>
               </Row>
               <Row className="g-4">
                 <Col className="col-sm" >
                   <div className="app-search d-flex flex-column flex-sm-row mt-0 align-items-start align-items-sm-center gap-3">
-                    <p className="text-muted mb-0 d-none d-lg-block">Summary</p>
+                  
                     <div className="position-relative">
                       <input
                         type="text"
