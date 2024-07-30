@@ -35,7 +35,7 @@ const handleclick=()=>{
               <Row>
                 <Col
                   md="12"
-                  className="col-sm d-flex justify-content-end align-items-center gap-2"
+                  className="d-flex flex-column flex-md-row justify-content-end align-items-end  gap-2"
                 >
                   <Button
                     color="success"
