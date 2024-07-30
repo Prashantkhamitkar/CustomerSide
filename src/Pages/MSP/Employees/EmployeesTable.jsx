@@ -35,11 +35,24 @@ const handleclick=()=>{
               <Row>
                 <Col
                   md="12"
-                  className="col-sm d-flex justify-content-end align-items-center"
+                  className="col-sm d-flex justify-content-end align-items-center gap-2"
                 >
-                 <Button color='success' className='btn btn-rounded waves-effect ' onClick={handleclick}>
+                  <Button
+                    color="success"
+                    className="btn btn-rounded waves-effect btn-info d-flex justify-content-center align-items-center"
+                    onClick={handleclick}
+                  >
+                    <i className="fas fa-sign-out-alt me-2"></i>
                     OFFBOARDING
-                 </Button>
+                  </Button>
+                  <Button
+                    type="button"
+                    className="btn btn-rounded btn-success waves-effect waves-light d-flex justify-content-center align-items-center"
+                    onClick={toggle}
+                  >
+                    <i className="fas fa-user-plus me-2"></i>
+                    ONBOARDING
+                  </Button>
                 </Col>
               </Row>
               <Row className="g-4">
@@ -78,8 +91,8 @@ const handleclick=()=>{
                   </div>
                 </Col>
               </Row>
-              <EmployeesData/>
-              <OffboardingModal modal={toggle} toggle={handleclick}/>
+              <EmployeesData />
+              <OffboardingModal modal={toggle} toggle={handleclick} />
             </CardBody>
           </Card>
         </Col>
