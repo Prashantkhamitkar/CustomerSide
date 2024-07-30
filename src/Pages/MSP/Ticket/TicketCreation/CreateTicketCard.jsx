@@ -350,7 +350,7 @@ const CreateTicketCard = () => {
                       </div>
                     </div>
                   </Col>
-                  <div className="d-flex justify-content-end">
+                  <div className="d-flex  justify-content-end">
                     <Button color="primary" type="submit" className="me-2">
                       <i
                         className="fas fa-plus me-1"
