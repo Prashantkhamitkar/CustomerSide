@@ -27,5 +27,11 @@ const SidebarData = [
     url: "/customertickets",
     isHasArrow: true,
   },
+  {
+    label: "Knowledge Base",
+    icon: "fas fa-info-circle",
+    url: "/knowledge-base",
+    isHasArrow: true,
+  },
 ];
 export default SidebarData;

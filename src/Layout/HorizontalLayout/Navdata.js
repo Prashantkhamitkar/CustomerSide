@@ -33,6 +33,13 @@ const Navdata = () => {
       isdropDown: true,
       url: "/customertickets",
     },
+    {
+      id: 5,
+      label: "Knowledge Base",
+      icon: "fas fa-info-circle me-2",
+      isdropDown: true,
+      url: "/knowledge-base",
+    },
   ];
   return <React.Fragment>{NavnavData}</React.Fragment>;
 };
