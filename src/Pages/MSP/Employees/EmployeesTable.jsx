@@ -3,11 +3,14 @@ import ActionButton from '../common/ActionButton';
 import { Button, Card, CardBody, CardHeader, Col, Row } from 'reactstrap';
 import EmployeesData from './EmployeesData';
 import OffboardingModal from './OFFBOARDING/OffboardingModal';
+import OnboardingIndex from './ONBOARDING/OnboardingIndex';
 
 const EmployeesTable = () => {
 const [employeedata,setemployeedata]=useState([]);
 const [searchTerm, setSearchTerm] = useState("");
 const [toggle,settoggle]=useState(false);
+const [onboardingmodal,setOnBoardingModal]=useState(false);
+
  useEffect(() => {
    const filtered = employeedata.filter((item) =>
      Object.values(item).some((val) =>
@@ -22,6 +25,9 @@ const resetRecord = () => {
 };
 const handleclick=()=>{
     settoggle(!toggle);
+}
+const toggleOnBoarding=()=>{
+  setOnBoardingModal(!onboardingmodal);
 }
   return (
     <>
@@ -48,7 +54,7 @@ const handleclick=()=>{
                   <Button
                     type="button"
                     className="btn btn-rounded btn-success waves-effect waves-light d-flex justify-content-center align-items-center"
-                    onClick={toggle}
+                    onClick={toggleOnBoarding}
                   >
                     <i className="fas fa-user-plus me-2"></i>
                     ONBOARDING
@@ -93,6 +99,7 @@ const handleclick=()=>{
               </Row>
               <EmployeesData />
               <OffboardingModal modal={toggle} toggle={handleclick} />
+              <OnboardingIndex toggle={toggleOnBoarding} isOpen={onboardingmodal}/>
             </CardBody>
           </Card>
         </Col>

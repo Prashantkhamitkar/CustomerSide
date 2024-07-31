@@ -7,10 +7,7 @@ import CreateTicketButton from './CreateTicketButton';
 const TicketTable = () => {
 const [ticketData, setTicketData] = useState([]);
 const [searchTerm, setSearchTerm] = useState("");
-const [modal,settoggle]=useState(false);
-const toggle=()=>{
-    settoggle(!modal);
-}
+
 useEffect(() => {
   const filtered = ticketData.filter((item) =>
     Object.values(item).some((val) =>
@@ -58,7 +55,7 @@ const resetRecord = () => {
                   md="12"
                   className="col-sm d-flex justify-content-end align-items-center"
                 >
-                <CreateTicketButton toggle={toggle}/>
+                <CreateTicketButton />
                 </Col>
               </Row>
               <Row className="g-4">

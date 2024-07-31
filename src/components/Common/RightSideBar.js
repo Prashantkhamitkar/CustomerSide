@@ -20,10 +20,7 @@ import { Link } from "react-router-dom";
 
 import "./rightbar.scss";
 
-//Import images
-import layout1 from "../../assets/images/layouts/layout-1.png";
-import layout2 from "../../assets/images/layouts/layout-2.png";
-import layout3 from "../../assets/images/layouts/layout-3.png";
+
 
 //constants
 import {
