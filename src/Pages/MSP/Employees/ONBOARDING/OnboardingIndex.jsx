@@ -39,7 +39,7 @@ const [isEditable, setIsEditable] = useState(true);
           <Row>
             <Col lg={6}>
               <Card>
-                <CardHeader className=" mt-0">EMPLOYEE INFORMATION</CardHeader>
+                <CardHeader className=" mt-0 text-center">EMPLOYEE INFORMATION</CardHeader>
                 <CardBody>
                   <Row>
                     <Col lg="6">
@@ -128,7 +128,7 @@ const [isEditable, setIsEditable] = useState(true);
             </Col>
             <Col lg={6}>
               <Card>
-                <CardHeader className="mt-0">EMAIL ACCOUNT</CardHeader>
+                <CardHeader className="mt-0 text-center">EMAIL ACCOUNT</CardHeader>
                 <CardBody>
                   <Row>
                     <Col>
@@ -241,7 +241,7 @@ const [isEditable, setIsEditable] = useState(true);
           <Row>
             <Col lg={12}>
               <Card>
-                <CardHeader className="mt-0">
+                <CardHeader className="mt-0 text-center">
                   COMPUTER/LAPTOP ACCOUNT
                 </CardHeader>
                 <CardBody>
