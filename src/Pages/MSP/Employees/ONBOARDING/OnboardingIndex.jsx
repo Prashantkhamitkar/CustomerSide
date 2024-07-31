@@ -3,8 +3,8 @@ import { Button, Card, CardBody, CardHeader, Col, Input, InputGroup,InputGroupTe
 import Select from "react-select"
 const OnboardingIndex = ({toggle,isOpen}) => {
 const [signature,setSignature]=useState("");
-const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-const [isEditable, setIsEditable] = useState(false);
+
+const [isEditable, setIsEditable] = useState(true);
     const customStyles = {
       menu: (provided) => ({
         ...provided,
@@ -15,7 +15,7 @@ const [isEditable, setIsEditable] = useState(false);
         zIndex: 9999,
       }),
     };
-    const togglePreview = () =>{ setIsPreviewOpen(!isPreviewOpen);
+    const togglePreview = () =>{ 
         setIsEditable(!isEditable);
     };
   return (
@@ -166,7 +166,7 @@ const [isEditable, setIsEditable] = useState(false);
                         <InputGroup>
                           <Input
                             type="textarea"
-                            placeholder="Email Signature"
+                            placeholder={signature ? "" : "Nothing To Preview"}
                             value={signature}
                             onChange={(e) => setSignature(e.target.value)}
                             rows="5"
@@ -175,11 +175,11 @@ const [isEditable, setIsEditable] = useState(false);
                           />
                           <InputGroupText className="d-flex justify-content-start align-items-start custominput">
                             <Button
-                              color={`${isEditable ? "success" : "warning"}`}
+                              color={isEditable ? "warning" : "success"} // Change color based on mode
                               className="btn btn-rounded"
                               onClick={togglePreview}
                             >
-                              {isEditable ? "Save" : "Preview"}
+                              {isEditable ? "Preview" : "Edit"} 
                             </Button>
                           </InputGroupText>
                         </InputGroup>
