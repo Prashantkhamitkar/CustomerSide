@@ -27,7 +27,7 @@ const AnimateButton = () => {
     >
       <i
         className="fas fa-ticket-alt me-2"
-        style={{ color: "#512da8", fontSize: "1rem" }}
+        style={{ color: "#512da8", fontSize: "1.1rem" }}
       />{" "}
       Create Ticket
     </button>
