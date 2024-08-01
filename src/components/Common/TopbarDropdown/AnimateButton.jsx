@@ -20,7 +20,7 @@ const AnimateButton = () => {
 
   return (
     <button
-      className={`animate-button ${
+      className={`animate-button card-title ${
         isanimate ? "animate" : ""
       }  justify-content-center align-items-center d-none d-md-flex`}
       onClick={handleClick}
