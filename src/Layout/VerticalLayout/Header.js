@@ -22,6 +22,7 @@ import {
 } from "../../store/actions";
 import ProfileMenu from "../../components/Common/TopbarDropdown/ProfileMenu";
 import AppsDropdown from "../../components/Common/TopbarDropdown/AppsDropdown";
+import AnimateButton from "../../components/Common/TopbarDropdown/AnimateButton";
 
 const Header = (props) => {
   const [search, setsearch] = useState(false);
@@ -158,7 +159,6 @@ const Header = (props) => {
               </button>
             </div>
 
-        
 
             <ProfileMenu />
 
