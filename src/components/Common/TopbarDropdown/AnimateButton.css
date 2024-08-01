@@ -1,0 +1,90 @@
+button {
+  background-color: transparent;
+  color: #1b1a1a;
+  font-size: 12px;
+  padding: 10px 45px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+
+
+.animate-button {
+  transition: transform 0.2s ease;
+}
+
+.animate-button:active {
+  transform: scale(0.96);
+}
+
+.animate-button.animate::before,
+.animate-button.animate::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-repeat: no-repeat;
+}
+
+.animate-button.animate::before {
+  top: -50%;
+  background-image: radial-gradient(circle, #512da8 12%, transparent 12%),
+    radial-gradient(circle, transparent 12%, #512da8 12%, transparent 12%),
+    radial-gradient(circle, #512da8 12%, transparent 12%),
+    radial-gradient(circle, transparent 6%, #512da8 8%, transparent 12%),
+    radial-gradient(circle, #512da8 12%, transparent 12%),
+    radial-gradient(circle, #512da8 12%, transparent 12%),
+    radial-gradient(circle, #512da8 12%, transparent 12%),
+    radial-gradient(circle, #512da8 12%, transparent 12%);
+  background-size: 6% 6%, 12% 12%, 8% 12%, 12% 12%, 10% 10%, 6% 6%, 8% 8%, 10% 10%;
+  background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+    40% 90%, 55% 90%, 70% 90%;
+  animation: topBubbles 3s infinite ease-in-out;
+}
+
+@keyframes topBubbles {
+  0%, 100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+}
+
+.animate-button.animate::after {
+  bottom: -50%;
+  background-image: radial-gradient(circle, #512da8 12%, transparent 12%),
+    radial-gradient(circle, transparent 6%, #512da8 8%, transparent 12%),
+    radial-gradient(circle, #512da8 12%, transparent 12%),
+    radial-gradient(circle, #512da8 12%, transparent 12%),
+    radial-gradient(circle, #512da8 12%, transparent 12%),
+    radial-gradient(circle, #512da8 12%, transparent 12%),
+    radial-gradient(circle, #512da8 12%, transparent 12%);
+  background-size: 8% 8%, 12% 12%, 10% 10%, 12% 12%, 8% 8%, 12% 12%, 10% 10%;
+  background-position: 10% 0%, 30% 10%, 55% 0%, 70% 0%, 85% 0%, 70% 0%, 70% 0%;
+  animation: bottomBubbles 5s infinite ease-in-out;
+}
+
+@keyframes bottomBubbles {
+  0%, 100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+}

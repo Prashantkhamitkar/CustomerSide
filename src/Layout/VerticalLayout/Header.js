@@ -142,7 +142,7 @@ const Header = (props) => {
                 </form>
               </div>
             </div>
-
+                <AnimateButton/>
             <LanguageDropdown />
       
 
