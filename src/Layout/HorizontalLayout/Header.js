@@ -22,6 +22,7 @@ import {
   changeSidebarType,
 } from "../../store/actions";
 import ProfileMenu from "../../components/Common/TopbarDropdown/ProfileMenu";
+import AnimateButton from "../../components/Common/TopbarDropdown/AnimateButton";
 
 
 const Header = (props) => {
@@ -134,7 +135,7 @@ const Header = (props) => {
                 </form>
               </div>
             </div>
-
+<AnimateButton/>
             <LanguageDropdown />
 
            
