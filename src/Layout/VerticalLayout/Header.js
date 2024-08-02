@@ -4,15 +4,15 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import LanguageDropdown from "../../components/Common/TopbarDropdown/LanguageDropdown";
-import NotificationDropdown from "../../components/Common/TopbarDropdown/NotificationDropdown";
+
 
 //i18n
 import { withTranslation } from "react-i18next";
 
 //import images
-import logoSm from "../../assets/images/logo-sm.png";
-import logoDark from "../../assets/images/logo-dark.png";
-import logoLight from "../../assets/images/logo-light.png";
+import logoSm from "../../assets/images/logo-sm.svg";
+import logoDark from "../../assets/images/logo-dark.svg";
+import logoLight from "../../assets/images/logo-light.svg";
 
 // Redux Store
 import {
@@ -21,7 +21,7 @@ import {
   changeSidebarType,
 } from "../../store/actions";
 import ProfileMenu from "../../components/Common/TopbarDropdown/ProfileMenu";
-import AppsDropdown from "../../components/Common/TopbarDropdown/AppsDropdown";
+
 import AnimateButton from "../../components/Common/TopbarDropdown/AnimateButton";
 
 const Header = (props) => {
@@ -72,19 +72,19 @@ const Header = (props) => {
             <div className="navbar-brand-box text-center">
               <Link to="/" className="logo logo-dark">
                 <span className="logo-sm">
-                  <img src={logoSm} alt="logo-sm-dark" height="22" />
+                  <img src={logoSm} alt="logo-sm-dark" height="25" />
                 </span>
                 <span className="logo-lg">
-                  <img src={logoDark} alt="logo-dark" height="24" />
+                  <img src={logoDark} alt="logo-dark" height="50" />
                 </span>
               </Link>
 
               <Link to="/" className="logo logo-light">
                 <span className="logo-sm">
-                  <img src={logoSm} alt="logo-sm-light" height="22" />
+                  <img src={logoSm} alt="logo-sm-light" height="25" />
                 </span>
                 <span className="logo-lg">
-                  <img src={logoLight} alt="logo-light" height="24" />
+                  <img src={logoLight} alt="logo-light" height="50" />
                 </span>
               </Link>
             </div>

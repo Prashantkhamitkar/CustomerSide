@@ -15,6 +15,7 @@ const AnimateButton = () => {
   }, []);
 
   const handleClick = () => {
+   
     navigate('/createticket');
   };
 
