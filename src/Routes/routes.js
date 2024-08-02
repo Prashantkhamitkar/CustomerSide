@@ -41,6 +41,7 @@ import EmployeesIndex from "../Pages/MSP/Employees/EmployeesIndex.jsx";
 import TicketIndex from "../Pages/MSP/Ticket/TicketIndex.jsx";
 import Login from "../Pages/MSP/publicpages/Login.jsx";
 import CreateTicket from "../Pages/MSP/Ticket/TicketCreation/CreateTicket.jsx";
+import KnowledgeBaseIndex from "../Pages/MSP/CustomerKnowledgeBase/KnowledgeBaseIndex.jsx";
 
 const authProtectedRoutes = [
   //dashboard
@@ -67,7 +68,7 @@ const authProtectedRoutes = [
   { path: "/contract-calendar-view", component: <ContractCalendar /> },
   { path: "/new-contract", component: <NewContractIndex /> },
   { path: "/contract-list", component: <ContractIndex /> },
-  { path: "/knowledge-base", component: <KnowledgeIndex /> },
+  { path: "/knowledge-base", component: <KnowledgeBaseIndex/> },
   { path: "/edit-article/:pid", component: <Attachments /> },
   { path: "/timesheet", component: <TimesheetIndex /> },
   { path: "/attendance-dashboard", component: <AttendanceDashIndex /> },
