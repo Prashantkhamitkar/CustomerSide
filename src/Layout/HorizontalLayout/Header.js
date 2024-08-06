@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import LanguageDropdown from "../../components/Common/TopbarDropdown/LanguageDropdown";
+
 
 
 //i18n
@@ -28,32 +28,32 @@ import AnimateButton from "../../components/Common/TopbarDropdown/AnimateButton"
 const Header = (props) => {
   const [search, setsearch] = useState(false);
 
-  function toggleFullscreen() {
-    if (
-      !document.fullscreenElement &&
-      /* alternative standard method */ !document.mozFullScreenElement &&
-      !document.webkitFullscreenElement
-    ) {
-      // current working methods
-      if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen();
-      } else if (document.documentElement.mozRequestFullScreen) {
-        document.documentElement.mozRequestFullScreen();
-      } else if (document.documentElement.webkitRequestFullscreen) {
-        document.documentElement.webkitRequestFullscreen(
-          Element.ALLOW_KEYBOARD_INPUT
-        );
-      }
-    } else {
-      if (document.cancelFullScreen) {
-        document.cancelFullScreen();
-      } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-      } else if (document.webkitCancelFullScreen) {
-        document.webkitCancelFullScreen();
-      }
-    }
-  }
+  // function toggleFullscreen() {
+  //   if (
+  //     !document.fullscreenElement &&
+  //     /* alternative standard method */ !document.mozFullScreenElement &&
+  //     !document.webkitFullscreenElement
+  //   ) {
+  //     // current working methods
+  //     if (document.documentElement.requestFullscreen) {
+  //       document.documentElement.requestFullscreen();
+  //     } else if (document.documentElement.mozRequestFullScreen) {
+  //       document.documentElement.mozRequestFullScreen();
+  //     } else if (document.documentElement.webkitRequestFullscreen) {
+  //       document.documentElement.webkitRequestFullscreen(
+  //         Element.ALLOW_KEYBOARD_INPUT
+  //       );
+  //     }
+  //   } else {
+  //     if (document.cancelFullScreen) {
+  //       document.cancelFullScreen();
+  //     } else if (document.mozCancelFullScreen) {
+  //       document.mozCancelFullScreen();
+  //     } else if (document.webkitCancelFullScreen) {
+  //       document.webkitCancelFullScreen();
+  //     }
+  //   }
+  // }
 
   return (
     <React.Fragment>
@@ -136,22 +136,11 @@ const Header = (props) => {
               </div>
             </div>
 <AnimateButton/>
-            <LanguageDropdown />
+         
 
            
 
-            <div className="dropdown d-none d-lg-inline-block ms-1">
-              <button
-                type="button"
-                onClick={() => {
-                  toggleFullscreen();
-                }}
-                className="btn header-item noti-icon"
-                data-toggle="fullscreen"
-              >
-                <i className="ri-fullscreen-line" />
-              </button>
-            </div>
+            
 
           
 
